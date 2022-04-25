@@ -195,6 +195,9 @@ public class SporadicSegments : MonoBehaviour
                         yield return "trycancel Halted waiting to press due to a request to cancel!";
                     while ((int)bomb.GetTime() % 10 != timerDigit)
                         yield return "trycancel Halted waiting to press due to a request to cancel!";
+                    while ((int)bomb.GetTime() % 10 != timerDigit && (bomb.GetTime() % 10 - (int)bomb.GetTime() % 10) > 0.8f)
+                        yield return new WaitForSeconds(0.1f);
+                    yield return null;
                     selectables[Array.IndexOf(segmentNames, parameters[1])].OnInteract();
                 }
                 else
